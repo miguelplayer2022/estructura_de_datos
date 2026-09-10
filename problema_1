@@ -29,3 +29,5 @@ public class Problema_1 {
         inventarioconsolidado.forEach(System.out::println);
         
     }
+     
+}
