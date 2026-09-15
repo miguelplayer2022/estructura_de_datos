@@ -1,0 +1,134 @@
+//atributos del objeto
+
+package uniminuto.sesionpoo_carro;
+
+public class carro {
+
+    // ---- Atributos de datos puros ----
+    String marca;
+    String modelo;
+    int anio;
+    String color;
+
+    // ---- Atributo de REFERENCIA hacia otro Carro (el "puente" a Nodo) ----
+    carro siguiente; // por defecto queda en null hasta que se asigne
+
+    // ---- Constructor ----
+    carro(String marca, String modelo, int anio, String color) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anio = anio;
+        this.color = color;
+        this.siguiente = null; // al crearse, no apunta a nadie todavia
+    }
+
+    // ---- Metodo (unico, sin parametros, sin retorno) ----
+    void mostrarInfo() {
+        System.out.println("Marca: " + marca + " | Modelo: " + modelo
+                + " | Anio: " + anio + " | Color: " + color);
+    }
+
+}
+
+
+// el objeto
+
+package uniminuto.sesionpoo_carro;
+
+public class SesionPOO_carro {
+
+    public static void main(String[] args) {
+
+        // ============================================================
+        // PASO 3: Cada estudiante crea su objeto (instancia) y lo llena
+        // Estos 4 son el EJEMPLO GUIA. Ustedes deben agregar 10 objetos
+        // MAS (c5 a c14) siguiendo exactamente este mismo patron.
+        // ============================================================
+        carro c1 = new carro("Mazda", "3", 2020, "Rojo");
+        carro c2 = new carro("Toyota", "Corolla", 2019, "Blanco");
+        carro c3 = new carro("Renault", "Logan", 2021, "Gris");
+        carro c4 = new carro("Chevrolet", "Spark", 2018, "Azul");
+        carro c5 = new carro("toyota","tx land cruiser",1999,"escarlata");
+        carro c6 = new carro("chevrolet","spark",2013,"azul");
+        carro c7 = new carro("hyundai","tucson",2014,"gris");
+        carro c8 = new carro("chevrolet","dmax",2013,"negro");
+        carro c9 = new carro("dodge","ram 1500",2017,"rojo");
+        carro c10 = new carro("honda","civic si",1995,"negro");
+        carro c11 = new carro ("bmw","m3",2023,"gris");
+        carro c12 = new carro ("renault","sandero",2017,"blanco"); 
+        carro c13 = new carro ("audi","tt",2023,"negro");
+        carro c14 = new carro ("ford","fiesta",2017,"gris");
+
+        // >>> AQUI VAN c5 a c14, con SUS PROPIOS datos <<<
+
+        System.out.println("=== PASO 3: Objetos creados ===");
+        c1.mostrarInfo();
+        c2.mostrarInfo();
+        c3.mostrarInfo();
+        c4.mostrarInfo();
+        c5.mostrarInfo();
+        c6.mostrarInfo();
+        c7.mostrarInfo();
+        c8.mostrarInfo();
+        c9.mostrarInfo();
+        c10.mostrarInfo();
+        c11.mostrarInfo();
+        c12.mostrarInfo();
+        c13.mostrarInfo();
+        c14.mostrarInfo();
+
+        // >>> AQUI VAN las llamadas a mostrarInfo() de c5 a c14 <<<
+
+
+        // ============================================================
+        // PASO 4: BLOQUE NO NEGOCIABLE - Referencia vs valor
+        // ============================================================
+        System.out.println("\n=== PASO 4: Referencia vs valor ===");
+        carro copia = c1; // copia es una SEGUNDA LLAVE hacia el MISMO objeto
+        copia.modelo = "CX-5";
+
+        System.out.println("Que imprime c1.modelo? Predigan antes de ver:");
+        System.out.println("c1.modelo = " + c1.modelo);
+
+
+        // ============================================================
+        // PASO 5 y 6: Enlazar los carros con "siguiente"
+        // Ustedes deben enlazar los 14: c1->c2->c3->...->c14->null
+        // ============================================================
+        System.out.println("\n=== PASO 5-6: Enlazando los carros ===");
+        c1.siguiente = c2;
+        c2.siguiente = c3;
+        c3.siguiente = c4;
+        c4.siguiente = c5;
+        c5.siguiente = c6;
+        c6.siguiente = c7;
+        c7.siguiente = c8;
+        c8.siguiente = c9;
+        c9.siguiente = c10;
+        c10.siguiente = c11;
+        c11.siguiente = c12;
+        c12.siguiente = c13;
+        c13.siguiente = c14;
+
+        // >>> AQUI VAN los enlaces de c4 hasta c14, y c14.siguiente = null <<<
+
+
+        // Recorrido: NO LO MODIFIQUEN, ya esta completo
+        System.out.println("Recorriendo la cadena desde c1:");
+        carro actual = c1;
+        while (actual != null) {
+            actual.mostrarInfo();
+            actual = actual.siguiente;
+        }
+        System.out.println("Llegamos a 'null': no hay mas carros encadenados.");
+    }
+}
+
+
+
+
+
+
+
+
+
