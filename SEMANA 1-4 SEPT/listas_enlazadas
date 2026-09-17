@@ -1,0 +1,32 @@
+class Nodo {
+    int dato;
+    Nodo siguiente;
+
+    Nodo(int dato) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+
+    public class ListaEnlazada {
+        Nodo cabeza;
+        ListaEnlazada() {
+            this.cabeza = null; 
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Nodo n1 = new Nodo(10);
+        Nodo n2 = new Nodo(20);
+        Nodo n3 = new Nodo(30);
+
+        n1.siguiente = n2;
+        n2.siguiente = n3;
+
+        System.out.println(n1.dato);
+        System.out.println(n1.siguiente.dato);
+        System.out.println(n1.siguiente.siguiente.dato);
+    }
+}
