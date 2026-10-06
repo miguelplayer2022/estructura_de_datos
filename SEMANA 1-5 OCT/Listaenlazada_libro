@@ -1,0 +1,159 @@
+package listaenlazada_libro;
+
+import java.util.LinkedList;
+
+
+public class Listaenlazada_libro {
+
+   
+    public static void main(String[] args) {
+        
+        // agregar libros a la lista
+        
+        Libros L1 = new Libros (" 01 ", "Don quijote de la mancha"," Miguel de Cervantes ",(double)15000);
+        Libros L2 = new Libros (" 02 ", "Cien años de soledad"," Gabriel Garcia Marquez ",(double)20000);
+        Libros L3 = new Libros (" 03 ", "Satanas"," Mario Mendoza ",(double)12000);
+        Libros L4 = new Libros (" 04 ", "harry potter"," j.K Rowling ",(double)30000);
+        Libros L5 = new Libros (" 05 ", "Mitos y leyendas de colombia"," Asdrubal Lopez Orozco ",(double)10000);
+        
+        // crear lista enlazada para almacenar objetos libro
+        
+        LinkedList<Libros> listalibros = new LinkedList<>(); 
+        
+        // 1. Agregar libros a la lista, incluyendo inserciones al inicio y al final.
+        
+        // agregar libros de manera normarl 
+        
+        listalibros.add(L2);
+        listalibros.add(L3);
+        
+        // agregar libro al inicio de la lista
+        
+        listalibros.addFirst(L1);
+        
+        // agregar libro al final de la lista
+        
+        listalibros.addLast(L4);
+        listalibros.addLast(L5);
+        
+        // mostrar lista de libros 
+        
+     //   System.out.println("\n lista de libros :");
+        
+     //   System.out.println(L1.mostrarinfo());
+     //   System.out.println(L2.mostrarinfo());
+     //   System.out.println(L3.mostrarinfo());
+     //   System.out.println(L4.mostrarinfo());
+     //   System.out.println(L5.mostrarinfo()); 
+        
+        
+        //2. Consultar elementos y determinar el tamaño de la lista.
+        
+        // consultar el primer elemento 
+        
+        Libros primerlibro = listalibros.getFirst();
+            System.out.println("\n el primer libro de la lista es: " + primerlibro.getTitulo());
+            
+        // consultar el ultimo elemento de la lista 
+        
+        Libros ultimolibro = listalibros.getLast();
+            System.out.println("\n el ultimo libro de la lista es: "+ ultimolibro.getTitulo()); 
+            
+            
+        // consultar libro en una posicion determinada
+        
+        Libros posicionlibro = listalibros.get(2);
+            System.out.println("\n libro en la posicion 2: " + posicionlibro.getTitulo());
+            
+        // determinar el numero de libros en la lista 
+        
+        int cantidad = listalibros.size();
+            System.out.println("\n cantidad de libro en la lista: " + cantidad);
+            
+            
+       // 3. Recorrer y mostrar todos los libros.
+       
+        System.out.println("\n recorrer lista y mostras todos los elementos: ");
+       
+       int pos = 0;
+       
+       for (Libros libro : listalibros) {
+           System.out.println("\n posicion: " + pos + ":" + libro.mostrarinfo());
+           pos++;
+       }
+       
+       
+       // 4. Buscar un libro.
+       
+        System.out.println("\n buscar un libro: ");
+        
+        String nombrelibro = "harry potter";
+        int posencontrada = -1; 
+        Libros libroencontrado = null; 
+        
+        // recorrer la lista buscando por el nombre
+        
+        for (int i = 0; i < listalibros.size();i ++ ){
+            if(listalibros.get(i).getTitulo().equalsIgnoreCase(nombrelibro)){
+            posencontrada = i;
+            libroencontrado = listalibros.get(i);
+            break;
+            }
+        
+        }
+        
+        // validar que el libro este en la lista
+        
+        if (posencontrada != -1){
+            System.out.println(" el libro " + nombrelibro + " fue encontrado en la posicion: " + posencontrada  );
+            System.out.println(" detalles: " + libroencontrado.mostrarinfo());
+        } else {
+            System.out.println("el libro: " + nombrelibro + "no fue encontrado en la lista");
+        
+        }
+        
+        // 5. Modificar uno de sus datos.
+        
+        System.out.println("\n modificar un libro de la lista: ");
+        
+        // modificar el libro "cien años de soledad"
+        
+        listalibros.get(1).setPrecio(25000);
+        System.out.println("nueva informacion del libro: " + listalibros.get(1).mostrarinfo());
+        
+        // 6. Eliminar elementos de la lista.
+        
+        System.out.println("\n eliminar libros de la lista: ");
+        
+        // eliminar primer libro 
+        
+        Libros eliminarprimero = listalibros.removeFirst();
+        System.out.println("se elimino el primer libro de la lista: " + eliminarprimero.getTitulo());
+        
+        // eliminar el ultimo libro de la lista
+        
+        Libros eliminarultimo = listalibros.removeLast();
+        System.out.println("se elimino el ultimo libro de la lista: " + eliminarultimo.getTitulo());
+        
+        // mostrar lista actualizada
+        
+        System.out.println("\n lista de libros actualizada: ");
+        for (Libros libro : listalibros ) {
+            System.out.println(libro.mostrarinfo());
+        }
+        
+        
+       
+        
+            
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+}
