@@ -1,0 +1,74 @@
+package listaenlazada_libro;
+
+public class Libros {
+    private String codigo;
+    private String titulo;
+    private String autor;
+    private double precio;
+    
+    // constructor lleno
+
+    public Libros(String codigo, String titulo, String autor, double precio) {
+        this.codigo = codigo;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.precio = precio;
+    }
+    
+    // constructor vacio 
+
+    public Libros() {
+    }
+    
+    // asignar los valores
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
+    // meotodo para mostrar la informacion
+    
+    public String mostrarinfo() {
+        return "Libros: " + "codigo=" + codigo + ", titulo=" + titulo + ", autor=" + autor + ", precio=" + precio + '.';
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
