@@ -1,0 +1,21 @@
+package inventario;
+
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class Inventario {
+    
+    private List<Producto> productos;
+    
+    public Inventario () {
+        productos = new LinkedList<>();
+    }
+    
+    public void newProducto(int ID, String name,int existence,double price ) {
+        Producto newproducto = new Producto(ID,name,existence,price);
+        
+        
+    }
+    
+}
