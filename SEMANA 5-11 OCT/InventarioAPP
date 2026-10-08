@@ -1,0 +1,132 @@
+package inventario;
+
+import java.util.Scanner;
+
+public class InventarioAPP {
+    // permite leer los datos del usuario 
+    private Scanner sc = new Scanner(System.in);
+    // objeto que administra el inventario 
+    private Inventario inventario;
+    
+    // metodo principal 
+    
+    public static void main (String []args) {
+        // crear un objeto de inventario APP
+        InventarioAPP app = new InventarioAPP();
+        // inicia el programa
+        app.init();
+    }
+    
+    // iniciar el programa
+
+    private void init() {
+        // crear el inventario
+        inventario = new Inventario ();
+        int op;
+        // repite el menu hasta seleccionar 6 
+        do {
+            System.out.println("\n \t menu");
+            System.out.println("\n------------MANEJO DE INVENTARIO----------");
+            System.out.println("1. nuevo prodcuto");
+            System.out.println("2. agregar existencia");
+            System.out.println("3. eliminar el producto");
+            System.out.println("4. actualizar precio");
+            System.out.println("5. mostrar producto");
+            System.out.println("6. salir");
+            System.out.println("\n seleccion una opcion ");
+            // lee la opcion seleccionada
+            op = sc.nextInt();
+            // ejecuta la opcion seleccionada
+            switch(op) {
+                case 1:
+                    newProducto();
+                    break;
+                case 2:
+                    addproducto();
+                    break;
+                case 3:
+                    deleteproducto();
+                    break;
+                case 4:
+                    updateproducto();
+                    break;
+                case 5:
+                    printProducto();
+                    break;
+                    
+                
+            }
+            
+            
+        }while (op != 6 );
+    
+    } 
+    
+    // opcion 1 nuevo producto 
+    
+    private void newProducto () {
+        System.out.println("ID del producto");
+        int ID = sc.nextInt();
+        
+        System.out.println(" nombre del producto: ");
+        String name = sc.next();
+        
+        System.out.println("existencia inicial: ");
+        int existence = sc.nextInt();
+        
+        System.out.println("precio del producto: ");
+        double price = sc.nextDouble();
+        // envia los datos a Inventario
+        inventario.newProducto(ID, name, existence, price);
+    }
+    
+    // opcion 2 agregar existencia
+    
+    private void addproducto () {
+        System.out.println("ID del producto: ");
+        int ID = sc.nextInt();
+        
+        // inventario aumenta la existencia 
+        inventario.addProducto(ID);
+    }
+    
+    // opcion 3 eliminar producto 
+    
+    private void deleteproducto () {
+        System.out.println("ID del producto: ");
+        int ID = sc.nextInt();
+        
+        //inventario elimina el producto
+        
+        inventario.deleteproducto(ID);
+    }
+    
+    // opcion 4 actualizar precio 
+    
+    private void updateproducto () {
+        System.out.println("ID del producto: ");
+        int ID = sc.nextInt();
+        
+        System.out.println("nuevo precio: ");
+        double price = sc.nextDouble();
+        
+        // inventario modificar precio 
+        
+        inventario.updateproducto(ID, price);
+    }
+    
+    // opcion 5 mostrar productos 
+    
+    private void printProducto () {
+        
+        // inventario muestra lista
+        
+        inventario.printProducto();
+    }
+    
+    
+    
+    
+    
+    
+}
