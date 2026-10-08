@@ -1,21 +1,85 @@
 package inventario;
 
+
 import java.util.LinkedList;
 import java.util.List;
 
 
 public class Inventario {
     
+    // lista donde se guardan los prodcutos
+    
     private List<Producto> productos;
+    
+     // constructor: crea la lista vacia 
     
     public Inventario () {
         productos = new LinkedList<>();
     }
     
+    // agregar un producto nuevo
+    
     public void newProducto(int ID, String name,int existence,double price ) {
-        Producto newproducto = new Producto(ID,name,existence,price);
+        // crea un objeto producto
+        Producto newProducto = new Producto(ID,name,existence,price);
+        // agrega un producto a la lista
+        boolean succes = productos.add(newProducto);
+        // informa si se agrega correctamente
+        if (succes) {
+            System.out.println(" el producto: " + name + " se agrego satisfactoriamente");
+        } else {
+            System.out.println(" ocurrio un problema al agregar el producto ");
+        }
         
         
+    }
+    
+    // aumenta la existencia de un producto 
+    
+    public void addProducto (int ID) {
+        // Busca la posicion del producto por su ID
+        int productindex = productos.indexOf(new Producto(ID));
+        // obtiene el producto encontrado
+        Producto product = productos.get(productindex);
+        // consultar la existencia actual 
+        int existencetemp = product.getExistence();
+        // aumenta la existencia de una unidad
+        int newExistence = existencetemp + 1;
+        // guarda la nueva existencia 
+        product.setExistence(newExistence);
+        System.out.println("\n se agrego una unidad de " + product.getName());
+        
+    }
+    // mostrar todos los productos
+    public void printProducto () {
+        System.out.println(" productos en el almacen ");
+        // recorrer e imprimir la lista
+        productos.forEach(System.out::println);
+        System.out.println();
+    }
+    // actualizar precio 
+    public void updateproducto(int ID, double price) {
+        // buscar la posicion usando el ID
+        int productindex = productos.indexOf(new Producto(ID));
+        // obtiene el prodcuto encontrado
+        Producto product = productos.get(productindex);
+        // cambia el precio 
+        product.setPrice(price);
+        System.out.println("\n precio actualizado correctamente ");
+       
+    }
+    // eliminar un producto
+    public void deleteproducto(int ID) {
+        // buscar la posicion usando el ID
+        int productindex = productos.indexOf(new Producto (ID));
+        // elimina y guarda el producto eliminado
+        Producto deleteproducto = productos.remove(productindex);
+        // Verificar si se elimino
+        if (deleteproducto != null ) {
+            System.out.println(" el producto " + deleteproducto + "se elimino");
+        } else {
+            System.out.println(" el producto no se elimino ");
+        }
     }
     
 }
