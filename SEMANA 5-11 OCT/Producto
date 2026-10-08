@@ -79,7 +79,7 @@ public class Producto {
     
     // permite mostras los datos del producto
 
-    public String mostrasinfo() {
+    public String toString() {
         return "Producto: " + "ID=" + ID + ", name=" + name + ", existence=" + existence + ", price=" + price + '.';
     }
     
