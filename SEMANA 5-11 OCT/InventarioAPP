@@ -32,7 +32,8 @@ public class InventarioAPP {
             System.out.println("3. eliminar el producto");
             System.out.println("4. actualizar precio");
             System.out.println("5. mostrar producto");
-            System.out.println("6. salir");
+            System.out.println("6. consultar producto");
+            System.out.println("7. salir");
             System.out.println("\n seleccion una opcion ");
             // lee la opcion seleccionada
             op = sc.nextInt();
@@ -53,12 +54,15 @@ public class InventarioAPP {
                 case 5:
                     printProducto();
                     break;
+                case 6:
+                    consultarProductoAPP();
+                    break;
                     
                 
             }
             
             
-        }while (op != 6 );
+        }while (op != 7 );
     
     } 
     
@@ -76,8 +80,11 @@ public class InventarioAPP {
         
         System.out.println("precio del producto: ");
         double price = sc.nextDouble();
+        
+        System.out.println("categoria del producto");
+        String category = sc.next();
         // envia los datos a Inventario
-        inventario.newProducto(ID, name, existence, price);
+        inventario.newProducto(ID, name, existence, price,category);
     }
     
     // opcion 2 agregar existencia
@@ -122,6 +129,14 @@ public class InventarioAPP {
         // inventario muestra lista
         
         inventario.printProducto();
+    }
+    
+    // opcion 6 consultar producto 
+    
+    private void consultarProductoAPP () {
+        System.out.println("ID del producto a consultar: ");
+        int ID = sc.nextInt();
+        inventario.consultarproducto(ID);
     }
     
     
