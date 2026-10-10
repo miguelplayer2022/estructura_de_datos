@@ -19,9 +19,9 @@ public class Inventario {
     
     // agregar un producto nuevo
     
-    public void newProducto(int ID, String name,int existence,double price ) {
+    public void newProducto(int ID, String name,int existence,double price,String category ) {
         // crea un objeto producto
-        Producto newProducto = new Producto(ID,name,existence,price);
+        Producto newProducto = new Producto(ID,name,existence,price,category);
         // agrega un producto a la lista
         boolean succes = productos.add(newProducto);
         // informa si se agrega correctamente
@@ -39,6 +39,7 @@ public class Inventario {
     public void addProducto (int ID) {
         // Busca la posicion del producto por su ID
         int productindex = productos.indexOf(new Producto(ID));
+        if (productindex != -1) {
         // obtiene el producto encontrado
         Producto product = productos.get(productindex);
         // consultar la existencia actual 
@@ -48,7 +49,9 @@ public class Inventario {
         // guarda la nueva existencia 
         product.setExistence(newExistence);
         System.out.println("\n se agrego una unidad de " + product.getName());
-        
+        } else {
+            System.out.println(" el prodcuto no existe ");
+        }
     }
     // mostrar todos los productos
     public void printProducto () {
@@ -61,17 +64,22 @@ public class Inventario {
     public void updateproducto(int ID, double price) {
         // buscar la posicion usando el ID
         int productindex = productos.indexOf(new Producto(ID));
+        if (productindex != -1){
         // obtiene el prodcuto encontrado
         Producto product = productos.get(productindex);
         // cambia el precio 
         product.setPrice(price);
         System.out.println("\n precio actualizado correctamente ");
+        } else {
+            System.out.println(" el producto no existe ");
+        }
        
     }
     // eliminar un producto
     public void deleteproducto(int ID) {
         // buscar la posicion usando el ID
         int productindex = productos.indexOf(new Producto (ID));
+        if (productindex != -1) {
         // elimina y guarda el producto eliminado
         Producto deleteproducto = productos.remove(productindex);
         // Verificar si se elimino
@@ -79,6 +87,24 @@ public class Inventario {
             System.out.println(" el producto " + deleteproducto + "se elimino");
         } else {
             System.out.println(" el producto no se elimino ");
+        }
+        } else {
+            System.out.println(" el producto no existe ");
+        }
+    }
+    
+    // consultar producto por ID
+    
+    public void consultarproducto(int ID) {
+        // buscar la posicion usando el ID
+        int productindex = productos.indexOf(new Producto (ID));
+        if (productindex != -1){
+            // obtiene el prodcuto encontrado
+            Producto  product = productos.get(productindex);
+            System.out.println(" producto encontrado ");
+            System.out.println(product);
+        } else {
+            System.out.println(" el producto no existe");
         }
     }
     
