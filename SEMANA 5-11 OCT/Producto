@@ -6,6 +6,7 @@ public class Producto {
     private String name;
     private int existence;
     private double price;
+    private String category; // <- nuevo atributo
     
     // consultar para buscar por ID
 
@@ -15,11 +16,12 @@ public class Producto {
     
     // cosntructor para crear un producto completo
 
-    public Producto(int ID, String name, int existence, double price) {
+    public Producto(int ID, String name, int existence, double price, String category) {
         this.ID = ID;
         this.name = name;
         this.existence = existence;
         this.price = price;
+        this.category = category;
     }
     
     // get: permite consultar los datos 
@@ -39,6 +41,12 @@ public class Producto {
     public double getPrice() {
         return price;
     }
+
+    public String getCategory() {
+        return category;
+    }
+    
+    
     
     // set: permite modificar los datos
 
@@ -57,6 +65,12 @@ public class Producto {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
+    
     
     // comparar los productos 
 
@@ -79,9 +93,15 @@ public class Producto {
     
     // permite mostras los datos del producto
 
+    @Override
     public String toString() {
-        return "Producto: " + "ID=" + ID + ", name=" + name + ", existence=" + existence + ", price=" + price + '.';
+        return "Producto{" + "ID=" + ID + ", name=" + name + ", existence=" + existence + ", price=" + price + ", category=" + category + '.';
     }
+    
+    
+
+  
+    
     
     
     
