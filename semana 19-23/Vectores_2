@@ -1,0 +1,37 @@
+package vectores_2;
+
+import java.util.Vector;
+
+
+public class Vectores_2 {
+
+   
+    public static void main(String[] args) {
+        Vector <String> estudiantes = new Vector <> (10);
+        estudiantes.add("anna");
+        estudiantes.add("jaime");
+        estudiantes.add("leo");
+        estudiantes.add("carlos");
+        estudiantes.add("pako");
+        estudiantes.add("andres");
+        estudiantes.add("felipe");
+        estudiantes.add("jose");
+        estudiantes.add("luis");
+        estudiantes.add("laura");
+        System.out.println(estudiantes);
+        
+        //consultar pósicion
+        
+        System.out.println("consultar posicion ");
+        System.out.println(estudiantes.get(1));
+        
+        // remplazar dato
+        
+        System.out.println(" reemplazar dato ");
+        System.out.println(estudiantes.set(1, "sara"));
+        System.out.println(" lista actualizada :" + estudiantes.set(1, "sara"));
+        
+        
+    }
+    
+}
