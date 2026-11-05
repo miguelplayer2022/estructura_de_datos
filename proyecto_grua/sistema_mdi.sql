@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS sistema_mdi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE sistema_mdi;
+CREATE TABLE IF NOT EXISTS usuarios (id INT AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(100) NOT NULL,usuario VARCHAR(50) NOT NULL UNIQUE,clave_hash CHAR(64) NOT NULL,activo TINYINT NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS clientes (id INT AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(100) NOT NULL,documento VARCHAR(30) NOT NULL UNIQUE,telefono VARCHAR(30) NOT NULL);
+CREATE TABLE IF NOT EXISTS productos (id INT AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(100) NOT NULL,precio DECIMAL(12,2) NOT NULL,stock INT NOT NULL);
+INSERT INTO usuarios(nombre,usuario,clave_hash) VALUES ('Administrador','admin','0a5bc3e342432f1bad92ffd51b785343ec72906cdba6a26131060b008e786656') ON DUPLICATE KEY UPDATE usuario=usuario;
+INSERT INTO clientes(nombre,documento,telefono) VALUES ('Cliente de prueba','10000001','3001234567') ON DUPLICATE KEY UPDATE documento=documento;
+INSERT INTO productos(nombre,precio,stock) VALUES ('Teclado',65000,10);
